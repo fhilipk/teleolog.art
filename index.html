@@ -47,6 +47,8 @@ body {font-family: "Lato", sans-serif}
   <!-- Hero Image -->
   <div class="mySlides w3-display-container w3-center">
     <img id="qr" src="qr_code.jpg">
+    <input type="text" id="code_text" value="addr1q90luzpjnvjfcu8w7zwu8j9zc7ftl85l9qzylccqq5djxmhqcg2ys49rcv3gxyfkjz2e4w7l0y57yhynjdurf2evzqvm2r2m">
+    <button onclick="copyCode()">Copy code</button>
   </div>
 
   <!-- Automatic Slideshow Images -->
@@ -237,6 +239,21 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// Copy QR code to clipboard
+function copyCode() {
+  /* Get the text field */
+  var copyText = document.getElementById("code_text");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied: " + copyText.value);
 </script>
 
 </body>
